@@ -1,0 +1,10 @@
+{
+    "name": "winium-example",
+    "private": true,
+    "description": "Example of using Winium with Nightwatch.js for desktop app autotesting",
+    "version": "0.0.1",
+    "main": "globals.js",
+    "dependencies": {
+        "nightwatch-html-reporter": ">2.0.0"
+    }
+}
