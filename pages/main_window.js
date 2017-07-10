@@ -1,12 +1,16 @@
+let windowLocator = {selector: '/*[@Name="Калькулятор"]', locateStrategy: 'xpath'}
+
+function buttonLocator(num){ return {selector: num, locateStrategy: 'name'} }
+
 module.exports = {
   elements: {
     window: {
-      selector: '//*[@Name="Калькулятор" and @LocalizedControlType="окно"]',
+      selector: '/*[@Name="Калькулятор" and @LocalizedControlType="окно"]',
       locateStrategy: 'xpath'
     },
     num1: {
-      selector: '1',
-      locateStrategy: 'name'
+      selector: [windowLocator,{selector: '1', locateStrategy: 'name'}],
+      locateStrategy: 'recursion'
     },
     num2: {
       selector: '2',
@@ -25,12 +29,12 @@ module.exports = {
       locateStrategy: 'name'
     },
     num6: {
-      selector: '//*[@Name="6" and @LocalizedControlType="кнопка"]',
+      selector: '//*[@Name="6"]',
       locateStrategy: 'xpath'
     },
     num7: {
-      selector: '//*[@Name="7" and @LocalizedControlType="кнопка"]',
-      locateStrategy: 'xpath'
+      selector: [windowLocator, buttonLocator(7)],
+      locateStrategy: 'recursion'
     },
     num8: {
       selector: '//*[@Name="8" and @LocalizedControlType="кнопка"]',
